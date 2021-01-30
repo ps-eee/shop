@@ -9,8 +9,6 @@ export class UserService {
 
   public user$: BehaviorSubject<undefined | User> = new BehaviorSubject<undefined | User>(undefined);
 
-  public constructor() { }
-
   public login(userId: number): void {
 
     this.user$.next({ userId });

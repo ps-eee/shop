@@ -29,11 +29,9 @@ export class TreatmentService {
 
     this.userService.user$.subscribe(
 
-      (user: undefined | User): void => {
+      (user: undefined | User): void => { this.getTreatment(user); },
 
-        this.getTreatment(user);
-
-      }
+      (error: Error): void => { console.log('user$ failed.', error); }
 
     );
 
