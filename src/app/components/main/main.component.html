@@ -1,6 +1,12 @@
 <mat-toolbar color="primary">
+
   <a mat-button [routerLink]="['/']">SHOP</a>
+
   <span style="flex: 1 1 auto;"></span>
+
   <button (click)="login()" mat-button *ngIf="user === undefined" type="button">Login</button>
-  <button (click)="logout()" mat-button *ngIf="user !== undefined" type="button">Logout</button>
+  <button (click)="logout()" mat-button *ngIf="user !== undefined" type="button">Logout {{ user?.userId }}</button>
+
 </mat-toolbar>
+
+<router-outlet></router-outlet>
