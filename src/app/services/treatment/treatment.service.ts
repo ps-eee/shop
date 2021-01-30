@@ -2,10 +2,10 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Params } from '@angular/router';
 import { BehaviorSubject } from 'rxjs';
-import { ENDPOINTS } from '../constants/endpoints';
-import { Treatment } from '../interfaces/treatment';
-import { User } from '../interfaces/user';
-import { UserService } from './user.service';
+import { ENDPOINTS } from '../../constants/endpoints';
+import { Treatment } from '../../interfaces/treatment';
+import { User } from '../../interfaces/user';
+import { UserService } from '../user/user.service';
 
 @Injectable({
   providedIn: 'root'

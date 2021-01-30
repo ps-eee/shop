@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Product } from '../../interfaces/product';
 import { Treatment } from '../../interfaces/treatment';
-import { ProductService } from '../../product.service';
-import { TreatmentService } from '../../services/treatment.service';
+import { ProductService } from '../../services/product/product.service';
+import { TreatmentService } from '../../services/treatment/treatment.service';
 
 @Component({
   selector: 'shop-home-page',
