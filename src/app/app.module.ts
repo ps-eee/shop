@@ -2,6 +2,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { NgModule } from '@angular/core';
 import { MatButtonModule } from '@angular/material/button';
 import { MatCardModule } from '@angular/material/card';
+import { MatProgressBarModule } from '@angular/material/progress-bar';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -20,6 +21,7 @@ import { ProductPageComponent } from './components/product-page/product-page.com
     HttpClientModule,
     MatButtonModule,
     MatCardModule,
+    MatProgressBarModule,
     MatToolbarModule,
     BrowserModule,
     BrowserAnimationsModule,

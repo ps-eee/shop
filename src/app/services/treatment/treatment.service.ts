@@ -5,6 +5,7 @@ import { BehaviorSubject } from 'rxjs';
 import { ENDPOINTS } from '../../constants/endpoints';
 import { Treatment } from '../../interfaces/treatment';
 import { User } from '../../interfaces/user';
+import { LoaderService } from '../loader/loader.service';
 import { UserService } from '../user/user.service';
 
 @Injectable({
@@ -24,6 +25,7 @@ export class TreatmentService {
 
   public constructor(
     private httpClient: HttpClient,
+    private loaderService: LoaderService,
     private userService: UserService
   ) {
 
@@ -41,13 +43,27 @@ export class TreatmentService {
 
     if (user === undefined) { this.treatment$.next(this.defaultTreatment); } else {
 
+      this.loaderService.showLoader();
+
       const params: Params = { userId: user.userId };
 
       this.httpClient.get<Treatment>(ENDPOINTS.getTreatment, { params }).subscribe(
 
-        (treatment: Treatment): void => { this.treatment$.next(treatment); },
+        (treatment: Treatment): void => {
 
-        (error: Error): void => { console.log('getTreatment() failed.', error); }
+          this.treatment$.next(treatment);
+
+          this.loaderService.hideLoader();
+
+        },
+
+        (error: Error): void => {
+
+          console.log('getTreatment() failed.', error);
+
+          this.loaderService.hideLoader();
+
+        }
 
       );
 

@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { User } from '../../interfaces/user';
+import { LoaderService } from '../../services/loader/loader.service';
 import { UserService } from '../../services/user/user.service';
 
 @Component({
@@ -9,13 +10,23 @@ import { UserService } from '../../services/user/user.service';
 })
 export class MainComponent implements OnInit {
 
+  public isLoaderVisible: boolean = false;
   public user: undefined | User = undefined;
 
   public constructor(
+    private loaderService: LoaderService,
     private userService: UserService
   ) { }
 
   public ngOnInit(): void {
+
+    this.loaderService.isLoaderVisible$.subscribe(
+
+      (isLoaderVisible: boolean): void => { this.isLoaderVisible = isLoaderVisible; },
+
+      (error: Error): void => { console.log('isLoaderVisible$ failed.', error); }
+
+    );
 
     this.userService.user$.subscribe(
 
