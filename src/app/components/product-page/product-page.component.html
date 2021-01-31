@@ -1,1 +1,47 @@
-<p>product-page works!</p>
+<div style="display: flex;">
+
+  <div style="flex: 1 1 0px;">
+
+    <img [src]="productHeroImgUrl" style="width: 100%;">
+
+    <br />
+
+    <div *ngFor="let productImageUrl of productImageUrls" style="display: inline-flex;">
+      <img (click)="productHeroImgUrl = productImageUrl" [src]="productImageUrl" style="cursor: pointer; margin: 4px 0 0 8px; width: 100px;">
+    </div>
+
+  </div>
+
+  <div style="flex: 1 1 0px; padding: 24px;">
+
+    <h1>{{ product?.name }}</h1>
+    <h3>$ XXX.xx</h3>
+    <div>
+      <button [color]="treatment?.buyCtaColor" mat-raised-button type="button">{{ treatment?.buyCtaText }}</button>
+    </div>
+
+    <br>
+
+    <ng-container *ngIf="treatment?.isReviewsPrioritized">
+      <h2>Reviews</h2>
+      <p><strong>Gytred Gbvits</strong>: Lorem, ipsum dolor sit amet consectetur adipisicing elit. Et omnis voluptatibus quas, qui cum ut at nemo repudiandae amet ipsa aliquid accusantium nulla atque odit porro recusandae reprehenderit provident pariatur! <span>✰✰✰✰✰</span></p>
+      <p><strong>Huejs Corls</strong>: Lorem ipsum dolor sit amet consectetur adipisicing elit. Harum obcaecati, earum at nihil dicta possimus doloremque, itaque nostrum quam optio error, ex nesciunt facilis consequuntur odit sequi accusantium excepturi necessitatibus! <span>✰✰✰✰</span></p>
+    </ng-container>
+
+    <h2>Description</h2>
+    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptas quaerat nobis impedit sunt perspiciatis mollitia modi vel velit totam. Non ullam nihil at totam, eius minus dolores adipisci voluptatibus odit. Lorem ipsum, dolor sit amet consectetur adipisicing elit. Sed sequi optio maiores? Praesentium reiciendis magni repellendus laboriosam natus provident ex assumenda, ipsam vitae dolore officia voluptatibus, ullam qui incidunt molestias.</p>
+    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptas quaerat nobis impedit sunt perspiciatis mollitia modi vel velit totam. Non ullam nihil at totam, eius minus dolores adipisci voluptatibus odit. Lorem ipsum, dolor sit amet consectetur adipisicing elit. Sed sequi optio maiores? Praesentium reiciendis magni repellendus laboriosam natus provident ex assumenda, ipsam vitae dolore officia voluptatibus, ullam qui incidunt molestias.</p>
+
+    <h2>Care Instructions</h2>
+    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptas quaerat nobis impedit sunt perspiciatis mollitia modi vel velit totam. Non ullam nihil at totam, eius minus dolores adipisci voluptatibus odit. Lorem ipsum, dolor sit amet consectetur adipisicing elit. Sed sequi optio maiores? Praesentium reiciendis magni repellendus laboriosam natus provident ex assumenda, ipsam vitae dolore officia voluptatibus, ullam qui incidunt molestias.</p>
+    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptas quaerat nobis impedit sunt perspiciatis mollitia modi vel velit totam. Non ullam nihil at totam, eius minus dolores adipisci voluptatibus odit. Lorem ipsum, dolor sit amet consectetur adipisicing elit. Sed sequi optio maiores? Praesentium reiciendis magni repellendus laboriosam natus provident ex assumenda, ipsam vitae dolore officia voluptatibus, ullam qui incidunt molestias.</p>
+
+    <ng-container *ngIf="!treatment?.isReviewsPrioritized">
+      <h2>Reviews</h2>
+      <p><strong>Gytred Gbvits</strong>: Lorem, ipsum dolor sit amet consectetur adipisicing elit. Et omnis voluptatibus quas, qui cum ut at nemo repudiandae amet ipsa aliquid accusantium nulla atque odit porro recusandae reprehenderit provident pariatur! <span>✰✰✰✰✰</span></p>
+      <p><strong>Huejs Corls</strong>: Lorem ipsum dolor sit amet consectetur adipisicing elit. Harum obcaecati, earum at nihil dicta possimus doloremque, itaque nostrum quam optio error, ex nesciunt facilis consequuntur odit sequi accusantium excepturi necessitatibus! <span>✰✰✰✰</span></p>
+    </ng-container>
+
+  </div>
+
+</div>
