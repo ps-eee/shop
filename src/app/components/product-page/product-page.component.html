@@ -7,7 +7,7 @@
     <br />
 
     <div *ngFor="let productImageUrl of productImageUrls" style="display: inline-flex;">
-      <img (click)="productHeroImgUrl = productImageUrl" [src]="productImageUrl" style="cursor: pointer; margin: 4px 0 0 8px; width: 100px;">
+      <img (click)="productHeroImgUrl = productImageUrl" [src]="productImageUrl" style="cursor: pointer; margin: 4px 0 0 8px; object-fit: contain; width: 100px;">
     </div>
 
   </div>
