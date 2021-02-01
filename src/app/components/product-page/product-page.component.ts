@@ -40,9 +40,9 @@ export class ProductPageComponent implements OnInit {
 
     this.treatmentStatisticService.treatmentStatistic$.subscribe(
 
-      (treatmentStatistic: undefined | TreatmentStatistic) => {
+      (treatmentStatistic: TreatmentStatistic) => {
 
-        this.treatment = treatmentStatistic?.treatment;
+        this.treatment = treatmentStatistic.treatment;
 
         this.productHeroImgUrl = (this.product === undefined || this.treatment === undefined) ? '' : this.product.imageUrls[this.treatment.productHeroImage];
 

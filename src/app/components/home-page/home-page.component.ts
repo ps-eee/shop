@@ -26,7 +26,7 @@ export class HomePageComponent implements OnInit {
 
     this.treatmentStatisticService.treatmentStatistic$.subscribe(
 
-      (treatmentStatistic: undefined | TreatmentStatistic): void => { this.treatment = treatmentStatistic?.treatment; },
+      (treatmentStatistic: TreatmentStatistic): void => { this.treatment = treatmentStatistic.treatment; },
 
       (error: Error): void => { console.log('treatment$ failed.', error); }
 

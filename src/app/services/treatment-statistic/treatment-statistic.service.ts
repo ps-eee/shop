@@ -3,6 +3,7 @@ import { Injectable } from '@angular/core';
 import { Params } from '@angular/router';
 import { BehaviorSubject } from 'rxjs';
 import { ENDPOINTS } from '../../constants/endpoints';
+import { Treatment } from '../../interfaces/treatment';
 import { TreatmentStatistic } from '../../interfaces/treatment-statistic';
 import { User } from '../../interfaces/user';
 import { ExposureService } from '../exposure/exposure.service';
@@ -14,7 +15,22 @@ import { UserService } from '../user/user.service';
 })
 export class TreatmentStatisticService {
 
-  public treatmentStatistic$: BehaviorSubject<undefined | TreatmentStatistic> = new BehaviorSubject<undefined | TreatmentStatistic>(undefined);
+  private defaultTreatment: Treatment = {
+    buyCtaColor: 'primary',
+    buyCtaText: 'BUY NOW',
+    isReviewsPrioritized: false,
+    productHeroImage: 'left',
+    productThumbnailImage: 'left'
+  };
+
+  private defaultTreatmentStatistic: TreatmentStatistic = {
+    exposureCount: 0,
+    successCount: 0,
+    treatment: this.defaultTreatment,
+    treatmentHash: ''
+  };
+
+  public treatmentStatistic$: BehaviorSubject<TreatmentStatistic> = new BehaviorSubject<TreatmentStatistic>(this.defaultTreatmentStatistic);
 
   public constructor(
     private httpClient: HttpClient,
@@ -35,7 +51,7 @@ export class TreatmentStatisticService {
 
   private getTreatmentStatistic(user: undefined | User): void {
 
-    if (user === undefined) { this.treatmentStatistic$.next(undefined); } else {
+    if (user === undefined) { this.treatmentStatistic$.next(this.defaultTreatmentStatistic); } else {
 
       this.loaderService.showLoader();
 
