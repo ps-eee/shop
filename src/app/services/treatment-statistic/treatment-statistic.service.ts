@@ -5,6 +5,7 @@ import { BehaviorSubject } from 'rxjs';
 import { ENDPOINTS } from '../../constants/endpoints';
 import { TreatmentStatistic } from '../../interfaces/treatment-statistic';
 import { User } from '../../interfaces/user';
+import { ExposureService } from '../exposure/exposure.service';
 import { LoaderService } from '../loader/loader.service';
 import { UserService } from '../user/user.service';
 
@@ -17,6 +18,7 @@ export class TreatmentStatisticService {
 
   public constructor(
     private httpClient: HttpClient,
+    private exposureService: ExposureService,
     private loaderService: LoaderService,
     private userService: UserService
   ) {
@@ -39,13 +41,15 @@ export class TreatmentStatisticService {
 
       const params: Params = { userId: user.userId };
 
-      this.httpClient.get<TreatmentStatistic>(ENDPOINTS.getTreatmentStatistic, { params }).subscribe(
+      this.httpClient.get<TreatmentStatistic>(ENDPOINTS.GET_TREATMENT_STATISTIC, { params }).subscribe(
 
         (treatmentStatistic: TreatmentStatistic): void => {
 
           this.treatmentStatistic$.next(treatmentStatistic);
 
           this.loaderService.hideLoader();
+
+          this.exposureService.postExposure(treatmentStatistic.treatmentHash, user.userId);
 
         },
 
