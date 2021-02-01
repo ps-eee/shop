@@ -3,7 +3,7 @@ import { Injectable } from '@angular/core';
 import { Params } from '@angular/router';
 import { BehaviorSubject } from 'rxjs';
 import { ENDPOINTS } from '../../constants/endpoints';
-import { Treatment } from '../../interfaces/treatment';
+import { TreatmentStatistic } from '../../interfaces/treatment-statistic';
 import { User } from '../../interfaces/user';
 import { LoaderService } from '../loader/loader.service';
 import { UserService } from '../user/user.service';
@@ -11,17 +11,9 @@ import { UserService } from '../user/user.service';
 @Injectable({
   providedIn: 'root'
 })
-export class TreatmentService {
+export class TreatmentStatisticService {
 
-  private defaultTreatment: Treatment = {
-    buyCtaColor: 'primary',
-    buyCtaText: 'BUY NOW',
-    isReviewsPrioritized: false,
-    productHeroImage: 'left',
-    productThumbnailImage: 'left'
-  };
-
-  public treatment$: BehaviorSubject<Treatment> = new BehaviorSubject<Treatment>(this.defaultTreatment);
+  public treatmentStatistic$: BehaviorSubject<undefined | TreatmentStatistic> = new BehaviorSubject<undefined | TreatmentStatistic>(undefined);
 
   public constructor(
     private httpClient: HttpClient,
@@ -31,7 +23,7 @@ export class TreatmentService {
 
     this.userService.user$.subscribe(
 
-      (user: undefined | User): void => { this.getTreatment(user); },
+      (user: undefined | User): void => { this.getTreatmentStatistic(user); },
 
       (error: Error): void => { console.log('user$ failed.', error); }
 
@@ -39,19 +31,19 @@ export class TreatmentService {
 
   }
 
-  private getTreatment(user: undefined | User): void {
+  private getTreatmentStatistic(user: undefined | User): void {
 
-    if (user === undefined) { this.treatment$.next(this.defaultTreatment); } else {
+    if (user === undefined) { this.treatmentStatistic$.next(undefined); } else {
 
       this.loaderService.showLoader();
 
       const params: Params = { userId: user.userId };
 
-      this.httpClient.get<Treatment>(ENDPOINTS.getTreatment, { params }).subscribe(
+      this.httpClient.get<TreatmentStatistic>(ENDPOINTS.getTreatmentStatistic, { params }).subscribe(
 
-        (treatment: Treatment): void => {
+        (treatmentStatistic: TreatmentStatistic): void => {
 
-          this.treatment$.next(treatment);
+          this.treatmentStatistic$.next(treatmentStatistic);
 
           this.loaderService.hideLoader();
 
@@ -59,7 +51,7 @@ export class TreatmentService {
 
         (error: Error): void => {
 
-          console.log('getTreatment() failed.', error);
+          console.log('getTreatmentStatistic() failed.', error);
 
           this.loaderService.hideLoader();
 

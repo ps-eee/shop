@@ -1,9 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { Product } from 'src/app/interfaces/product';
-import { Treatment } from 'src/app/interfaces/treatment';
-import { ProductService } from 'src/app/services/product/product.service';
-import { TreatmentService } from 'src/app/services/treatment/treatment.service';
+import { Product } from '../../interfaces/product';
+import { Treatment } from '../../interfaces/treatment';
+import { TreatmentStatistic } from '../../interfaces/treatment-statistic';
+import { ProductService } from '../../services/product/product.service';
+import { TreatmentStatisticService } from '../../services/treatment-statistic/treatment-statistic.service';
 
 @Component({
   selector: 'shop-product-page',
@@ -20,7 +21,7 @@ export class ProductPageComponent implements OnInit {
   public constructor(
     private activatedRoute: ActivatedRoute,
     private productService: ProductService,
-    private treatmentService: TreatmentService
+    private treatmentStatisticService: TreatmentStatisticService
   ) { }
 
   public ngOnInit(): void {
@@ -37,13 +38,13 @@ export class ProductPageComponent implements OnInit {
 
     }
 
-    this.treatmentService.treatment$.subscribe(
+    this.treatmentStatisticService.treatmentStatistic$.subscribe(
 
-      (treatment: Treatment) => {
+      (treatmentStatistic: undefined | TreatmentStatistic) => {
 
-        this.treatment = treatment;
+        this.treatment = treatmentStatistic?.treatment;
 
-        this.productHeroImgUrl = (this.product === undefined) ? '' : this.product.imageUrls[this.treatment.productHeroImage];
+        this.productHeroImgUrl = (this.product === undefined || this.treatment === undefined) ? '' : this.product.imageUrls[this.treatment.productHeroImage];
 
       },
 

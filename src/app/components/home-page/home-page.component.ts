@@ -1,8 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { Product } from '../../interfaces/product';
 import { Treatment } from '../../interfaces/treatment';
+import { TreatmentStatistic } from '../../interfaces/treatment-statistic';
 import { ProductService } from '../../services/product/product.service';
-import { TreatmentService } from '../../services/treatment/treatment.service';
+import { TreatmentStatisticService } from '../../services/treatment-statistic/treatment-statistic.service';
 
 @Component({
   selector: 'shop-home-page',
@@ -16,16 +17,16 @@ export class HomePageComponent implements OnInit {
 
   public constructor(
     private productService: ProductService,
-    private treatmentService: TreatmentService
+    private treatmentStatisticService: TreatmentStatisticService
   ) { }
 
   public ngOnInit(): void {
 
     this.products = this.productService.getAll();
 
-    this.treatmentService.treatment$.subscribe(
+    this.treatmentStatisticService.treatmentStatistic$.subscribe(
 
-      (treatment: undefined | Treatment): void => { this.treatment = treatment; },
+      (treatmentStatistic: undefined | TreatmentStatistic): void => { this.treatment = treatmentStatistic?.treatment; },
 
       (error: Error): void => { console.log('treatment$ failed.', error); }
 
