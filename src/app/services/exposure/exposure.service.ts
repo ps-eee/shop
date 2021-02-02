@@ -69,7 +69,7 @@ export class ExposureService {
 
       const partialExposure: Pick<Exposure, 'id'> = { id: this.exposure.id };
 
-      return this.httpClient.post<void>(ENDPOINTS.MARK_EXPOSURE_SUCCESSFUL, partialExposure);
+      return this.httpClient.put<void>(ENDPOINTS.MARK_EXPOSURE_SUCCESSFUL, partialExposure);
 
     }
 
