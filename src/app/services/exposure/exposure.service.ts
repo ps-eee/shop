@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Observable, throwError } from 'rxjs';
+import { Observable, of } from 'rxjs';
 import { ENDPOINTS } from '../../constants/endpoints';
 import { Exposure } from '../../interfaces/exposure';
 import { TreatmentStatistic } from '../../interfaces/treatment-statistic';
@@ -65,7 +65,7 @@ export class ExposureService {
 
   public markExposureSuccessful(): Observable<void> {
 
-    if (this.exposure === undefined) { return throwError(undefined); } else {
+    if (this.exposure === undefined) { return of(undefined); } else {
 
       const partialExposure: Pick<Exposure, 'id'> = { id: this.exposure.id };
 
