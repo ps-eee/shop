@@ -11,26 +11,34 @@ import { LoaderService } from '../loader/loader.service';
 })
 export class ExposureService {
 
+  private exposure: undefined | Exposure = undefined;
+
   public constructor(
     private httpClient: HttpClient,
     private loaderService: LoaderService
   ) { }
 
-  public postExposure(treatmentHash: TreatmentStatistic['treatmentHash'], userId: User['userId']): void {
+  public postPartialExposure(treatmentHash: TreatmentStatistic['treatmentHash'], userId: User['userId']): void {
 
     this.loaderService.showLoader();
 
-    const exposure: Exposure = {
+    const partialExposure: Omit<Exposure, 'id' | 'isSuccessful'> = {
       timestamp: (new Date()).toISOString(),
       treatmentHash,
       userId
     };
 
-    this.httpClient.post(ENDPOINTS.POST_EXPOSURE, exposure).subscribe(
+    this.httpClient.post<Exposure>(ENDPOINTS.POST_PARTIAL_EXPOSURE, partialExposure).subscribe(
 
-      (): void => { this.loaderService.hideLoader(); },
+      (exposure: Exposure): void => {
 
-      (error: Error): void => { console.log('postExposure() failed.', error); }
+        this.exposure = exposure;
+
+        this.loaderService.hideLoader();
+
+      },
+
+      (error: Error): void => { console.log('postPartialExposure() failed.', error); }
 
     );
 
