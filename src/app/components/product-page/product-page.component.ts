@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
+import { ExposureService } from 'src/app/services/exposure/exposure.service';
+import { LoaderService } from 'src/app/services/loader/loader.service';
 import { Product } from '../../interfaces/product';
 import { Treatment } from '../../interfaces/treatment';
 import { TreatmentStatistic } from '../../interfaces/treatment-statistic';
@@ -13,6 +15,7 @@ import { TreatmentStatisticService } from '../../services/treatment-statistic/tr
 })
 export class ProductPageComponent implements OnInit {
 
+  public isMarkExposureSuccessfulCalled: boolean = false;
   public product: undefined | Product = undefined;
   public productHeroImgUrl: string = '';
   public productImageUrls: string[] = [];
@@ -20,6 +23,9 @@ export class ProductPageComponent implements OnInit {
 
   public constructor(
     private activatedRoute: ActivatedRoute,
+    private router: Router,
+    private exposureService: ExposureService,
+    private loaderService: LoaderService,
     private productService: ProductService,
     private treatmentStatisticService: TreatmentStatisticService
   ) { }
@@ -51,6 +57,42 @@ export class ProductPageComponent implements OnInit {
       (error: Error): void => { console.log('treatment$ failed.', error); }
 
     );
+
+  }
+
+  public markExposureSuccessful(): void {
+
+    if (this.isMarkExposureSuccessfulCalled) { return; } else {
+
+      this.isMarkExposureSuccessfulCalled = true;
+
+      this.loaderService.showLoader();
+
+      this.exposureService.markExposureSuccessful().subscribe(
+
+        (): void => {
+
+          this.isMarkExposureSuccessfulCalled = false;
+
+          this.loaderService.hideLoader();
+
+          this.router.navigate(['/', 'checkout']);
+
+        },
+
+        (error: Error): void => {
+
+          console.log('markExposureSuccessful() failed.', error);
+
+          this.isMarkExposureSuccessfulCalled = false;
+
+          this.loaderService.hideLoader();
+
+        }
+
+      );
+
+    }
 
   }
 
