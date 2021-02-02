@@ -18,7 +18,7 @@ export class ExposureService {
     private loaderService: LoaderService
   ) { }
 
-  public postPartialExposure(treatmentHash: TreatmentStatistic['treatmentHash'], userId: User['userId']): void {
+  public postExposure(treatmentHash: TreatmentStatistic['treatmentHash'], userId: User['userId']): void {
 
     this.loaderService.showLoader();
 
@@ -28,7 +28,7 @@ export class ExposureService {
       userId
     };
 
-    this.httpClient.post<Exposure>(ENDPOINTS.POST_PARTIAL_EXPOSURE, partialExposure).subscribe(
+    this.httpClient.post<Exposure>(ENDPOINTS.POST_EXPOSURE, partialExposure).subscribe(
 
       (exposure: Exposure): void => {
 
@@ -38,7 +38,7 @@ export class ExposureService {
 
       },
 
-      (error: Error): void => { console.log('postPartialExposure() failed.', error); }
+      (error: Error): void => { console.log('postExposure() failed.', error); }
 
     );
 

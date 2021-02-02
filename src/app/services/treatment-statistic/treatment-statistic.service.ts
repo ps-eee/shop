@@ -65,7 +65,7 @@ export class TreatmentStatisticService {
 
           this.loaderService.hideLoader();
 
-          this.exposureService.postPartialExposure(treatmentStatistic.treatmentHash, user.userId);
+          this.exposureService.postExposure(treatmentStatistic.treatmentHash, user.userId);
 
         },
 
