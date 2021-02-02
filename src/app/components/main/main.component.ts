@@ -40,9 +40,13 @@ export class MainComponent implements OnInit {
 
   public login(): void {
 
-    const userId: number = Number(prompt('User ID?', '0')) || 0;
+    const userId: null | string = prompt('User ID?', '0');
 
-    this.userService.login(userId);
+    if (userId && Number.isInteger(Number(userId)) && Number(userId) >= 0) {
+
+      this.userService.login(Number(userId));
+
+    }
 
   }
 
