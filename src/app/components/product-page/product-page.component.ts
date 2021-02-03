@@ -1,10 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-import { ExposureService } from 'src/app/services/exposure/exposure.service';
-import { LoaderService } from 'src/app/services/loader/loader.service';
 import { Product } from '../../interfaces/product';
 import { Treatment } from '../../interfaces/treatment';
 import { TreatmentStatistic } from '../../interfaces/treatment-statistic';
+import { ExposureService } from '../../services/exposure/exposure.service';
+import { LoaderService } from '../../services/loader/loader.service';
 import { ProductService } from '../../services/product/product.service';
 import { TreatmentStatisticService } from '../../services/treatment-statistic/treatment-statistic.service';
 

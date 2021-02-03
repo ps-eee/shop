@@ -67,9 +67,7 @@ export class ExposureService {
 
     if (this.exposure === undefined) { return of(undefined); } else {
 
-      const partialExposure: Pick<Exposure, 'id'> = { id: this.exposure.id };
-
-      return this.httpClient.put<void>(ENDPOINTS.MARK_EXPOSURE_SUCCESSFUL, partialExposure);
+      return this.httpClient.put<void>(ENDPOINTS.MARK_EXPOSURE_SUCCESSFUL, this.exposure);
 
     }
 
