@@ -50,8 +50,6 @@ export class ProductPageComponent implements OnInit {
 
         this.treatment = treatmentStatistic.treatment;
 
-        this.productHeroImgUrl = (this.product === undefined || this.treatment === undefined) ? '' : this.product.imageUrls[this.treatment.productHeroImage];
-
       },
 
       (error: Error): void => { console.log('treatment$ failed.', error); }

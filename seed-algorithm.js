@@ -31,7 +31,7 @@ const puppeteer = require('puppeteer');
     await page.click('button#login');
 
     // Wait for API calls
-    await page.waitForTimeout(3000);
+    await page.waitForTimeout(5000);
 
     // Randomly select product and go to detail page
     const id = Math.floor(Math.random() * 5 + 1)
@@ -73,6 +73,10 @@ const puppeteer = require('puppeteer');
       // Wait for API call
       await page.waitForTimeout(5000);
 
+    } else {
+
+      await page.waitForTimeout(3000);
+
     }
 
     // Close tab
@@ -81,6 +85,6 @@ const puppeteer = require('puppeteer');
   }
 
   // Close browser
-  setTimeout(async () => { await browser.close(); }, 500);
+  setTimeout(async () => { await browser.close(); }, 3000);
 
 })();
