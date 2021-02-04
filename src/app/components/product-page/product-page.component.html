@@ -15,14 +15,14 @@
   <div style="flex: 1 1 0px; padding: 24px;">
 
     <h1>{{ product?.name }}</h1>
-    <h3>$ XXX.xx</h3>
+    <h3>$ {{ product?.price }}</h3>
     <div>
       <button id="checkout" [color]="treatment?.buyCtaColor" (click)="markExposureSuccessful()" [disabled]="isMarkExposureSuccessfulCalled" mat-raised-button type="button">{{ treatment?.buyCtaText }}</button>
     </div>
 
     <br>
 
-    <h3 style="color: red;"><strong>{{ treatment?.fomoText }}</strong></h3>
+    <h3 id="fomo-text" style="color: red;"><strong>{{ treatment?.fomoText }}</strong></h3>
 
     <h2>Description</h2>
     <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptas quaerat nobis impedit sunt perspiciatis mollitia modi vel velit totam. Non ullam nihil at totam, eius minus dolores adipisci voluptatibus odit. Lorem ipsum, dolor sit amet consectetur adipisicing elit. Sed sequi optio maiores? Praesentium reiciendis magni repellendus laboriosam natus provident ex assumenda, ipsam vitae dolore officia voluptatibus, ullam qui incidunt molestias.</p>

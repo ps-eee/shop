@@ -40,7 +40,7 @@ export class MainComponent implements OnInit {
 
   public login(): void {
 
-    const userId: null | string = prompt('User ID?', '0');
+    const userId: null | string = prompt('Enter User ID:', '0');
 
     if (userId && Number.isInteger(Number(userId)) && Number(userId) >= 0) {
 
