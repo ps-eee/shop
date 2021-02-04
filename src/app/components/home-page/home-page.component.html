@@ -10,7 +10,7 @@
     </mat-card-content>
 
     <mat-card-footer align="end">
-      <a color="primary" mat-raised-button [routerLink]="['/product', product.id]" style="margin: 16px;" type="button">VIEW DETAILS</a>
+      <a [id]="'product-' + product.id" color="primary" mat-raised-button [routerLink]="['/product', product.id]" style="margin: 16px;" type="button">VIEW DETAILS</a>
     </mat-card-footer>
 
   </mat-card>

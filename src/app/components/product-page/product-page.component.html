@@ -17,7 +17,7 @@
     <h1>{{ product?.name }}</h1>
     <h3>$ XXX.xx</h3>
     <div>
-      <button [color]="treatment?.buyCtaColor" (click)="markExposureSuccessful()" [disabled]="isMarkExposureSuccessfulCalled" mat-raised-button type="button">{{ treatment?.buyCtaText }}</button>
+      <button id="checkout" [color]="treatment?.buyCtaColor" (click)="markExposureSuccessful()" [disabled]="isMarkExposureSuccessfulCalled" mat-raised-button type="button">{{ treatment?.buyCtaText }}</button>
     </div>
 
     <br>
