@@ -7,7 +7,7 @@ const puppeteer = require('puppeteer');
 
   const appUrl = 'http://localhost:4200';
   const preferredTreatment = 'Almost Gone!';
-  const runCount = 10;
+  const runCount = 100;
   let preferredTreatmentCount = 0;
   let preferredTreatmentCheckoutCount = 0;
   let nonPreferredTreatmentCount = 0;
@@ -71,7 +71,7 @@ const puppeteer = require('puppeteer');
       await page.click('button#checkout');
 
       // Wait for API call
-      await page.waitForTimeout(3000);
+      await page.waitForTimeout(5000);
 
     }
 

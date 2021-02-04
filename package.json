@@ -9,7 +9,7 @@
     "lint": "ng lint",
     "e2e": "ng e2e",
     "deploy": "ng deploy --base-href=/shop/",
-    "seed-algorithm": "node seed-algorithm.ts"
+    "seed-algorithm": "node seed-algorithm.js"
   },
   "private": true,
   "dependencies": {
