@@ -3,15 +3,15 @@ const puppeteer = require('puppeteer');
 (async () => {
 
   // Open browser
-  const browser = await puppeteer.launch({ defaultViewport: null, headless: false, newPage: false });
+  const browser = await puppeteer.launch({ defaultViewport: null, headless: false });
 
+  const appUrl = 'http://localhost:4200';
+  const preferredTreatment = 'Almost Gone!';
+  const runCount = 10;
   let preferredTreatmentCount = 0;
   let preferredTreatmentCheckoutCount = 0;
-
   let nonPreferredTreatmentCount = 0;
   let nonPreferredTreatmentCheckoutCount = 0;
-
-  const runCount = 10;
 
   for (let i = 0; i < runCount; i++) {
 
@@ -19,7 +19,7 @@ const puppeteer = require('puppeteer');
     const page = await browser.newPage();
 
     // Go to app
-    await page.goto('http://localhost:4200');
+    await page.goto(appUrl);
 
     // Register Login prompt handler
     const userId = Math.floor(Math.random() * 1000 + 1);
@@ -37,14 +37,15 @@ const puppeteer = require('puppeteer');
     const id = Math.floor(Math.random() * 5 + 1)
     await page.click('a#product-' + id);
 
-    // If preferred treatment, checkout if preferredTreatmentCheckoutCount/preferredTreatmentCount < 3%
-    // If non-preferred treatment, checkout if nonPreferredTreatmentCheckoutCount/nonPreferredTreatmentCount < 2.75%
+    const fomoText = await page.$eval('#fomo-text', el => el.textContent);
 
-    const isTreatmentPreferred = (Math.floor(Math.random() * 2) % 2) === 0;
+    const isTreatmentPreferred = fomoText === preferredTreatment;
 
     let isBuying = false;
 
     if (isTreatmentPreferred) {
+
+      // If preferred treatment, checkout if preferredTreatmentCheckoutCount/preferredTreatmentCount < 3%
 
       isBuying = preferredTreatmentCheckoutCount / preferredTreatmentCount <= (3 / 100);
 
@@ -54,7 +55,9 @@ const puppeteer = require('puppeteer');
 
     } else {
 
-      isBuying = nonPreferredTreatmentCheckoutCount / nonPreferredTreatmentCount <= (3 / 100);
+      // If non-preferred treatment, checkout if nonPreferredTreatmentCheckoutCount/nonPreferredTreatmentCount < 2.75%
+
+      isBuying = nonPreferredTreatmentCheckoutCount / nonPreferredTreatmentCount <= (2.75 / 100);
 
       if (isBuying) { nonPreferredTreatmentCheckoutCount++; }
 
