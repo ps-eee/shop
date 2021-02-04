@@ -18,7 +18,7 @@ export class TreatmentStatisticService {
   private defaultTreatment: Treatment = {
     buyCtaColor: 'primary',
     buyCtaText: 'BUY NOW',
-    isReviewsPrioritized: false,
+    fomoText: 'Almost Gone!',
     productHeroImage: 'left',
     productThumbnailImage: 'left'
   };
