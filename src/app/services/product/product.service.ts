@@ -13,7 +13,7 @@ export class ProductService {
       imageUrls: { left: 'assets/1-left.jpg', bottom: 'assets/1-bottom.jpg', right: 'assets/1-right.jpg' }
     },
     {
-      name: 'Jordan \'Why Not?\' Zer0.4 "Upbringing"',
+      name: 'Jordan "Upbringing"',
       id: 2,
       imageUrls: { left: 'assets/2-left.jpg', bottom: 'assets/2-bottom.jpg', right: 'assets/2-right.jpg' }
     }
