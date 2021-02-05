@@ -15,6 +15,8 @@ const puppeteer = require('puppeteer');
 
   for (let i = 0; i < runCount; i++) {
 
+    console.log('Running iteration ' + i + '.')
+
     // Open tab
     const page = await browser.newPage();
 

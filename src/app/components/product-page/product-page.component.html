@@ -2,20 +2,18 @@
 
   <div style="flex: 1 1 0px;">
 
-    <img [src]="productHeroImgUrl" style="width: 100%;">
+    <img [src]="productHeroImgUrl" style="height: 600px; object-fit: cover; object-position: center; width: 100%;">
 
     <br />
 
-    <div *ngFor="let productImageUrl of productImageUrls" style="display: inline-flex;">
-      <img (click)="productHeroImgUrl = productImageUrl" [src]="productImageUrl" style="cursor: pointer; margin: 4px 0 0 8px; object-fit: contain; width: 100px;">
-    </div>
+    <img class="carousel-image" (click)="productHeroImgUrl = productImageUrl" [src]="productImageUrl" *ngFor="let productImageUrl of productImageUrls">
 
   </div>
 
   <div style="flex: 1 1 0px; padding: 24px;">
 
     <h1>{{ product?.name }}</h1>
-    <h3>{{ product?.price | currency: 'USD' }}</h3>
+    <h2>{{ product?.price | currency: 'USD' }}</h2>
     <div>
       <button id="checkout" [color]="treatment?.buyCtaColor" (click)="markExposureSuccessful()" [disabled]="isMarkExposureSuccessfulCalled" mat-raised-button type="button">BUY NOW</button>
     </div>
