@@ -15,7 +15,7 @@
   <div style="flex: 1 1 0px; padding: 24px;">
 
     <h1>{{ product?.name }}</h1>
-    <h3>$ {{ product?.price }}</h3>
+    <h3>{{ product?.price | currency: 'USD' }}</h3>
     <div>
       <button id="checkout" [color]="treatment?.buyCtaColor" (click)="markExposureSuccessful()" [disabled]="isMarkExposureSuccessfulCalled" mat-raised-button type="button">BUY NOW</button>
     </div>

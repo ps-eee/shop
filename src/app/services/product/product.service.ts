@@ -20,19 +20,19 @@ export class ProductService {
       price: 303.29
     },
     {
-      name: 'Nike Air Zoom SuperRep 2',
+      name: 'Nike SuperRep 2',
       id: 3,
       imageUrls: { left: 'assets/3-left.jpg', bottom: 'assets/3-bottom.jpg', right: 'assets/3-right.jpg' },
       price: 245.25
     },
     {
-      name: 'NikeCourt Air Zoom Vapor Cage 4',
+      name: 'Nike Vapor Cage 4',
       id: 4,
       imageUrls: { left: 'assets/4-left.jpg', bottom: 'assets/4-bottom.jpg', right: 'assets/4-right.jpg' },
       price: 355.48
     },
     {
-      name: 'Jordan Delta Breathe "Chinese New Year"',
+      name: 'Jordan Delta Breathe',
       id: 5,
       imageUrls: { left: 'assets/5-left.jpg', bottom: 'assets/5-bottom.jpg', right: 'assets/5-right.jpg' },
       price: 472.18

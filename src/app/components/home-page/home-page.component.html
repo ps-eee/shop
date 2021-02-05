@@ -1,18 +1,18 @@
-<div class="background" [ngStyle]="{ 'background-image': 'url(\'assets/background.jpg\')' }"></div>
+<img class="hero" src="assets/background.webp">
 
-<div class="product-card-container">
+<div class="page-container">
 
   <mat-card class="product-card" *ngFor="let product of products">
-
+    <mat-card-header>
+      <mat-card-title>{{ product.name }}</mat-card-title>
+    </mat-card-header>
+    <img class="product-card-image" mat-card-image [src]="treatment === undefined ? '' : product.imageUrls[treatment.productThumbnailImage]">
     <mat-card-content>
-      <img class="product-image" [src]="treatment === undefined ? '' : product.imageUrls[treatment.productThumbnailImage]">
-      <h2>{{ product.name }}</h2>
+      <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Esse, quos. Soluta vitae minus aperiam nemo earum iste maiores, voluptates in necessitatibus explicabo accusantium eveniet, quam iusto ducimus ratione nobis labore.</p>
     </mat-card-content>
-
-    <mat-card-footer align="end">
-      <a [id]="'product-' + product.id" color="primary" mat-raised-button [routerLink]="['/product', product.id]" style="margin: 16px;" type="button">VIEW DETAILS</a>
-    </mat-card-footer>
-
+    <mat-card-actions style="text-align: center;">
+      <a [id]="'product-' + product.id" color="accent" mat-flat-button [routerLink]="['/product', product.id]" type="button">VIEW DETAILS</a>
+    </mat-card-actions>
   </mat-card>
 
 </div>
