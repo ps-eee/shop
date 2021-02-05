@@ -1,4 +1,4 @@
-<div style="display: flex;">
+<div class="flex-container">
 
   <div style="flex: 1 1 0px;">
 
@@ -10,31 +10,35 @@
 
   </div>
 
-  <div style="flex: 1 1 0px; padding: 24px;">
+  <div style="flex: 1 1 0px;">
 
-    <h1>{{ product?.name }}</h1>
-    <h2>{{ product?.price | currency: 'USD' }}</h2>
-    <div>
-      <button id="checkout" [color]="treatment?.buyCtaColor" (click)="markExposureSuccessful()" [disabled]="isMarkExposureSuccessfulCalled" mat-raised-button type="button">BUY NOW</button>
+    <div class="page-container" style="text-align: left;">
+
+      <h1>{{ product?.name }}</h1>
+      <h2>{{ product?.price | currency: 'USD' }}</h2>
+      <div>
+        <button id="checkout" [color]="treatment?.buyCtaColor" (click)="markExposureSuccessful()" [disabled]="isMarkExposureSuccessfulCalled" mat-raised-button type="button">BUY NOW</button>
+      </div>
+
+      <br>
+
+      <h3 id="fomo-text" style="color: red;"><strong>{{ treatment?.fomoText }}</strong></h3>
+
+      <h2>Description</h2>
+      <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptas quaerat nobis impedit sunt perspiciatis mollitia modi vel velit totam. Non ullam nihil at totam, eius minus dolores adipisci voluptatibus odit. Lorem ipsum, dolor sit amet consectetur adipisicing elit. Sed sequi optio maiores? Praesentium reiciendis magni repellendus laboriosam natus provident ex assumenda, ipsam vitae dolore officia voluptatibus, ullam qui incidunt molestias.</p>
+      <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptas quaerat nobis impedit sunt perspiciatis mollitia modi vel velit totam. Non ullam nihil at totam, eius minus dolores adipisci voluptatibus odit. Lorem ipsum, dolor sit amet consectetur adipisicing elit. Sed sequi optio maiores? Praesentium reiciendis magni repellendus laboriosam natus provident ex assumenda, ipsam vitae dolore officia voluptatibus, ullam qui incidunt molestias.</p>
+
+      <h2>Care Instructions</h2>
+      <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptas quaerat nobis impedit sunt perspiciatis mollitia modi vel velit totam. Non ullam nihil at totam, eius minus dolores adipisci voluptatibus odit. Lorem ipsum, dolor sit amet consectetur adipisicing elit. Sed sequi optio maiores? Praesentium reiciendis magni repellendus laboriosam natus provident ex assumenda, ipsam vitae dolore officia voluptatibus, ullam qui incidunt molestias.</p>
+      <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptas quaerat nobis impedit sunt perspiciatis mollitia modi vel velit totam. Non ullam nihil at totam, eius minus dolores adipisci voluptatibus odit. Lorem ipsum, dolor sit amet consectetur adipisicing elit. Sed sequi optio maiores? Praesentium reiciendis magni repellendus laboriosam natus provident ex assumenda, ipsam vitae dolore officia voluptatibus, ullam qui incidunt molestias.</p>
+
+      <ng-container>
+        <h2>Reviews</h2>
+        <p><strong>Gytred Gbvits</strong>: Lorem, ipsum dolor sit amet consectetur adipisicing elit. Et omnis voluptatibus quas, qui cum ut at nemo repudiandae amet ipsa aliquid accusantium nulla atque odit porro recusandae reprehenderit provident pariatur! <span>✰✰✰✰✰</span></p>
+        <p><strong>Huejs Corls</strong>: Lorem ipsum dolor sit amet consectetur adipisicing elit. Harum obcaecati, earum at nihil dicta possimus doloremque, itaque nostrum quam optio error, ex nesciunt facilis consequuntur odit sequi accusantium excepturi necessitatibus! <span>✰✰✰✰</span></p>
+      </ng-container>
+
     </div>
-
-    <br>
-
-    <h3 id="fomo-text" style="color: red;"><strong>{{ treatment?.fomoText }}</strong></h3>
-
-    <h2>Description</h2>
-    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptas quaerat nobis impedit sunt perspiciatis mollitia modi vel velit totam. Non ullam nihil at totam, eius minus dolores adipisci voluptatibus odit. Lorem ipsum, dolor sit amet consectetur adipisicing elit. Sed sequi optio maiores? Praesentium reiciendis magni repellendus laboriosam natus provident ex assumenda, ipsam vitae dolore officia voluptatibus, ullam qui incidunt molestias.</p>
-    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptas quaerat nobis impedit sunt perspiciatis mollitia modi vel velit totam. Non ullam nihil at totam, eius minus dolores adipisci voluptatibus odit. Lorem ipsum, dolor sit amet consectetur adipisicing elit. Sed sequi optio maiores? Praesentium reiciendis magni repellendus laboriosam natus provident ex assumenda, ipsam vitae dolore officia voluptatibus, ullam qui incidunt molestias.</p>
-
-    <h2>Care Instructions</h2>
-    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptas quaerat nobis impedit sunt perspiciatis mollitia modi vel velit totam. Non ullam nihil at totam, eius minus dolores adipisci voluptatibus odit. Lorem ipsum, dolor sit amet consectetur adipisicing elit. Sed sequi optio maiores? Praesentium reiciendis magni repellendus laboriosam natus provident ex assumenda, ipsam vitae dolore officia voluptatibus, ullam qui incidunt molestias.</p>
-    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptas quaerat nobis impedit sunt perspiciatis mollitia modi vel velit totam. Non ullam nihil at totam, eius minus dolores adipisci voluptatibus odit. Lorem ipsum, dolor sit amet consectetur adipisicing elit. Sed sequi optio maiores? Praesentium reiciendis magni repellendus laboriosam natus provident ex assumenda, ipsam vitae dolore officia voluptatibus, ullam qui incidunt molestias.</p>
-
-    <ng-container>
-      <h2>Reviews</h2>
-      <p><strong>Gytred Gbvits</strong>: Lorem, ipsum dolor sit amet consectetur adipisicing elit. Et omnis voluptatibus quas, qui cum ut at nemo repudiandae amet ipsa aliquid accusantium nulla atque odit porro recusandae reprehenderit provident pariatur! <span>✰✰✰✰✰</span></p>
-      <p><strong>Huejs Corls</strong>: Lorem ipsum dolor sit amet consectetur adipisicing elit. Harum obcaecati, earum at nihil dicta possimus doloremque, itaque nostrum quam optio error, ex nesciunt facilis consequuntur odit sequi accusantium excepturi necessitatibus! <span>✰✰✰✰</span></p>
-    </ng-container>
 
   </div>
 

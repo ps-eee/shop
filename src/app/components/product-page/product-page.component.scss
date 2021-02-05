@@ -6,3 +6,13 @@
   object-fit: contain;
   width: 120px;
 }
+
+.flex-container {
+  display: flex;
+}
+
+@media screen and (max-width: 1024px) {
+  .flex-container {
+    flex-direction: column;
+  }
+}
