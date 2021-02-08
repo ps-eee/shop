@@ -1,0 +1,115 @@
+<div class="page-container">
+
+  <mat-vertical-stepper>
+
+    <mat-step [stepControl]="experimentFormGroup">
+
+      <ng-template matStepLabel>Experiment</ng-template>
+      <p style="margin-top: 8px;">Basic information about the experiment.</p>
+
+      <form [formGroup]="experimentFormGroup">
+
+        <div>
+          <mat-form-field appearance="fill" style="width: 100%;">
+            <mat-label>ID</mat-label>
+            <input formControlName="id" matInput type="number">
+          </mat-form-field>
+        </div>
+
+        <div>
+          <mat-form-field appearance="fill" style="width: 100%;">
+            <mat-label>Name</mat-label>
+            <input formControlName="name" matInput type="text">
+          </mat-form-field>
+        </div>
+
+        <div>
+          <mat-form-field appearance="fill" style="width: 100%;">
+            <mat-label>Params</mat-label>
+            <mat-chip-list>
+              <mat-chip selected>CTA Color</mat-chip>
+              <mat-chip selected>FOMO Text</mat-chip>
+              <mat-chip selected>Thumbnail Image</mat-chip>
+              <mat-chip>CTA Text</mat-chip>
+            </mat-chip-list>
+          </mat-form-field>
+        </div>
+
+      </form>
+
+      <br>
+
+      <div>
+        <button mat-button matStepperNext style="margin: 8px 12px 0 0;">NEXT</button>
+      </div>
+
+    </mat-step>
+
+    <mat-step [formGroup]="choicesFormGroup">
+
+      <ng-template matStepLabel>Choices</ng-template>
+      <p style="margin-top: 8px;">Choices of the params.</p>
+
+      <form [formGroup]="choicesFormGroup">
+
+        <div>
+          <mat-form-field appearance="fill" style="width: 100%;">
+            <mat-label>CTA Colors</mat-label>
+            <input formControlName="ctaColors" matInput type="text">
+          </mat-form-field>
+        </div>
+
+        <div>
+          <mat-form-field appearance="fill" style="width: 100%;">
+            <mat-label>FOMO Texts</mat-label>
+            <input formControlName="fomoTexts" matInput type="text">
+          </mat-form-field>
+        </div>
+
+        <div>
+          <mat-form-field appearance="fill" style="width: 100%;">
+            <mat-label>Thumbnail Images</mat-label>
+            <input formControlName="thumbnailImages" matInput type="text">
+          </mat-form-field>
+        </div>
+
+      </form>
+
+      <div>
+        <button mat-button matStepperPrevious style="margin: 8px 12px 0 0;">BACK</button>
+        <button mat-button matStepperNext style="margin: 8px 12px 0 0;">NEXT</button>
+      </div>
+
+    </mat-step>
+
+    <mat-step>
+
+      <ng-template matStepLabel>Metrics</ng-template>
+      <p style="margin-top: 8px;">Success metrics of the experiment.</p>
+
+      <form></form>
+
+      <div>
+        <button mat-button matStepperPrevious style="margin: 8px 12px 0 0;">BACK</button>
+        <button mat-button matStepperNext style="margin: 8px 12px 0 0;">NEXT</button>
+      </div>
+
+    </mat-step>
+
+    <mat-step>
+
+      <ng-template matStepLabel>Users</ng-template>
+      <p style="margin-top: 8px;">User groups exposed to this experiment.</p>
+
+      <form></form>
+
+      <div>
+        <button mat-button matStepperPrevious style="margin: 8px 12px 0 0;">BACK</button>
+        <button color="primary" mat-flat-button style="margin: 8px 12px 0 0;">ACTIVATE</button>
+      </div>
+
+    </mat-step>
+
+  </mat-vertical-stepper>
+
+</div>

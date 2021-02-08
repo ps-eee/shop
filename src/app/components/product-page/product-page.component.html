@@ -6,13 +6,15 @@
 
     <br />
 
-    <img class="carousel-image" (click)="productHeroImgUrl = productImageUrl" [src]="productImageUrl" *ngFor="let productImageUrl of productImageUrls">
+    <div class="carousel-image-container">
+      <img class="carousel-image" (click)="productHeroImgUrl = productImageUrl" [src]="productImageUrl" *ngFor="let productImageUrl of productImageUrls">
+    </div>
 
   </div>
 
   <div style="flex: 1 1 0px;">
 
-    <div class="page-container" style="text-align: left;">
+    <div class="page-container">
 
       <h1>{{ product?.name }}</h1>
       <h2>{{ product?.price | currency: 'USD' }}</h2>
