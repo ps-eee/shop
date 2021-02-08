@@ -20,8 +20,8 @@ export class SetupPageComponent {
   });
 
   public metricsFormGroup: FormGroup = this.formBuilder.group({
-    addToCartRate: [true, [Validators.required]],
-    averageOrderValue: [true, [Validators.required]],
+    addToCartRate: [false, [Validators.required]],
+    averageOrderValue: [false, [Validators.required]],
     cartAbandonmentRate: [false, [Validators.required]],
     conversionRate: [false, [Validators.required]],
     customerLifetimeValue: [false, [Validators.required]],
@@ -39,5 +39,11 @@ export class SetupPageComponent {
   public constructor(
     private formBuilder: FormBuilder
   ) { }
+
+  public publishExperiment() {
+
+    alert('Experiment is now live.');
+
+  }
 
 }
