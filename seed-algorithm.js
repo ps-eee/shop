@@ -3,7 +3,7 @@ const puppeteer = require('puppeteer');
 (async () => {
 
   // Open browser
-  const browser = await puppeteer.launch({ defaultViewport: null, headless: false });
+  const browser = await puppeteer.launch({ defaultViewport: null, headless: true });
 
   const appUrl = 'http://localhost:4200';
   const preferredTreatment = 'Almost Gone!';
@@ -15,7 +15,7 @@ const puppeteer = require('puppeteer');
 
   for (let i = 0; i < runCount; i++) {
 
-    console.log('Running iteration ' + i + '.')
+    console.log('Running iteration ' + (i + 1) + '.')
 
     // Open tab
     const page = await browser.newPage();
