@@ -82,12 +82,34 @@
 
     </mat-step>
 
-    <mat-step>
+    <mat-step [formGroup]="metricsFormGroup">
 
       <ng-template matStepLabel>Metrics</ng-template>
       <p style="margin-top: 8px;">Success metrics of the experiment.</p>
 
-      <form></form>
+      <form [formGroup]="metricsFormGroup">
+
+        <mat-checkbox formControlName="addToCartRate">Add To Cart Rate (Current: 4%)</mat-checkbox>
+        <br>
+        <mat-checkbox formControlName="averageOrderValue">Average Order Value (Current: AED 400)</mat-checkbox>
+        <br>
+        <mat-checkbox formControlName="cartAbandonmentRate">Cart Abandonment Rate (Current: 25%)</mat-checkbox>
+        <br>
+        <mat-checkbox formControlName="conversionRate">Conversion Rate (Current: 60%)</mat-checkbox>
+        <br>
+        <mat-checkbox formControlName="customerLifetimeValue">Customer Lifetime Value</mat-checkbox>
+        <br>
+        <mat-checkbox formControlName="leads">Leads (Current: 20%)</mat-checkbox>
+        <br>
+        <mat-checkbox formControlName="productAffinityRate">Product Affinity Rate (Current: 4%)</mat-checkbox>
+        <br>
+        <mat-checkbox formControlName="purchases">Purchases (Current mean: AED 400)</mat-checkbox>
+        <br>
+        <mat-checkbox formControlName="revenuePerVisit">Revenue Per Visit (Current: AED 2)</mat-checkbox>
+        <br>
+        <mat-checkbox formControlName="signUps">Sign Ups (Current: 20%)</mat-checkbox>
+
+      </form>
 
       <div>
         <button mat-button matStepperPrevious style="margin: 8px 12px 0 0;">BACK</button>

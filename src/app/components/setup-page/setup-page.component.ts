@@ -19,7 +19,18 @@ export class SetupPageComponent {
     thumbnailImages: ['left | bottom | right', [Validators.required]]
   });
 
-  public metricsFormGroup: FormGroup = this.formBuilder.group({});
+  public metricsFormGroup: FormGroup = this.formBuilder.group({
+    addToCartRate: [true, [Validators.required]],
+    averageOrderValue: [true, [Validators.required]],
+    cartAbandonmentRate: [false, [Validators.required]],
+    conversionRate: [false, [Validators.required]],
+    customerLifetimeValue: [false, [Validators.required]],
+    leads: [false, [Validators.required]],
+    productAffinityRate: [false, [Validators.required]],
+    purchases: [true, [Validators.required]],
+    revenuePerVisit: [false, [Validators.required]],
+    signUps: [false, [Validators.required]]
+  });
 
   public usersFormGroup: FormGroup = this.formBuilder.group({});
 

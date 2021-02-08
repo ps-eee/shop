@@ -6,8 +6,9 @@
 
   <span style="flex: 1 1 auto;"></span>
 
-  <button id="login" (click)="login()" mat-button *ngIf="user === undefined" type="button">Login</button>
-  <button (click)="logout()" mat-button *ngIf="user !== undefined" type="button">Logout User {{ user?.userId }}</button>
+  <a mat-button [routerLink]="['/setup']">SETUP</a>
+  <button id="login" (click)="login()" mat-button *ngIf="user === undefined" type="button">LOGIN</button>
+  <button (click)="logout()" mat-button *ngIf="user !== undefined" type="button">LOGOUT USER {{ user?.userId }}</button>
 
 </mat-toolbar>
 
