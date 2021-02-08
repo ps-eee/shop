@@ -32,7 +32,9 @@ export class SetupPageComponent {
     signUps: [false, [Validators.required]]
   });
 
-  public usersFormGroup: FormGroup = this.formBuilder.group({});
+  public usersFormGroup: FormGroup = this.formBuilder.group({
+    groupBy: ['', [Validators.required]]
+  });
 
   public constructor(
     private formBuilder: FormBuilder

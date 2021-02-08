@@ -118,12 +118,22 @@
 
     </mat-step>
 
-    <mat-step>
+    <mat-step [formGroup]="usersFormGroup">
 
       <ng-template matStepLabel>Users</ng-template>
       <p style="margin-top: 8px;">User groups exposed to this experiment.</p>
 
-      <form></form>
+      <form [formGroup]="usersFormGroup">
+
+        <mat-radio-group formControlName="groupBy">
+          <mat-radio-button>By ID</mat-radio-button>
+          <br>
+          <mat-radio-button>By Region</mat-radio-button>
+          <br>
+          <mat-radio-button>By Age</mat-radio-button>
+        </mat-radio-group>
+
+      </form>
 
       <div>
         <button mat-button matStepperPrevious style="margin: 8px 12px 0 0;">BACK</button>
