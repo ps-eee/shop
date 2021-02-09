@@ -77,9 +77,20 @@ const puppeteer = require('puppeteer');
 
     } else {
 
-      await page.waitForTimeout(3000);
+      await page.waitForTimeout(10000);
 
     }
+
+    const chartPage = await browser.newPage();
+
+    // Go to chart
+    await chartPage.goto('http://localhost:7071/api/getCharts');
+
+    await chartPage.screenshot({ path: './screenshots/ss-' + i + '.png' });
+
+    await chartPage.waitForTimeout(5000);
+
+    await chartPage.close();
 
     // Close tab
     await page.close();
